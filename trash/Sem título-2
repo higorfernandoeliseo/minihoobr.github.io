@@ -1,0 +1,123 @@
+<?php
+                        $conexao_db = new PDO("mysql:host=localhost;dbname=searchindex","root","");
+						$conexao_db->exec("set names utf8");
+                        $busca = "";
+                        $order_results = array();
+					
+						$q = array();
+						
+					
+                        if(isset($_GET['q']) and $_GET['q'] <> ''){
+
+							$explode = explode(" ", $_GET['q']);
+                            $num = count($explode);
+							
+                    		for($i=0;$i<$num;$i++){
+                                $q[] = "+".$explode[$i]."";
+                            }
+							
+							$new_q = implode(" ", $q);
+							
+							echo $new_q;
+							
+                            //SELECT title, url, score FROM links WHERE MATCH (title,url) AGAINST ('+linux ' IN BOOLEAN MODE) > 0 ORDER BY page_weight+score DESC
+							
+							//SELECT title, url, score FROM links WHERE MATCH (title,url) AGAINST ('+linux ' IN BOOLEAN MODE) > 0 ORDER BY score DESC
+                            
+							//, page_weight DESC
+							
+							
+                            $buscar = $conexao_db->prepare("SELECT title, description, url, score, indexdate, size, MATCH (title, url) AGAINST ('".$new_q." ' IN BOOLEAN MODE) as page_weight FROM links WHERE MATCH (title, url) AGAINST ('".$new_q." ' IN BOOLEAN MODE) > 0 ORDER BY `links`.`score` DESC LIMIT 100");
+							
+							//@8
+                            
+                            
+                            $buscar->execute();
+                            
+                            //echo $buscar->rowCount();
+                             foreach($buscar as $results){
+                                 
+                                 
+                                 $new_score = $results['page_weight'] * 1.0 + $results['score'] * 1.0;
+                                 
+                                 $date_crwl = '<p class="description_href">('.$new_score.')</p>';
+								 
+                                 $titulo = '<span class="titlehref"> <a href="'.$results['url'].'"> '.$results['title'].' </a> </span>';
+                                 
+								 
+								 if(strlen($results['url']) > 100){
+									$url = '<span class="urlhref"> <i style="font-size: 13px;" class="far fa-lock"></i> &nbsp;'.substr($results['url'] ,0 , 60).'... - '.round($results['size']).'k</span>';
+								 }else{
+									 $url = '<span class="urlhref"> <i style="font-size: 13px;" class="far fa-lock"></i> &nbsp;'.$results['url'].' - '.round($results['size']).'k</span><br />'.$results['score'].'';
+								 }
+                                
+								 
+								 $desc = '<p class="description_href">'.$results['description'].'</p>';
+                                 
+                                  echo '<article class="results_web_pages">';
+                                 
+                                 echo ''.$titulo.' <br />'.$desc.''.$url.'<br />';
+                                 
+                                 echo '</article>';
+                            
+                                 
+                                 //$order_results[] = array($titulo, $url);
+                                 
+                             }
+                            
+                            /* arsort($order_results);
+                                 
+                                 foreach($order_results as $key => $value){
+                                     
+                                     echo '<article class="results_web_pages">';
+                                     
+                                     //unset($value[0]);
+                                     echo implode($value,' ');
+                                     echo PHP_EOL;
+                                     
+                                     echo '</article>';
+                                     
+                                }*/
+
+                        }else{
+                            //echo "campo vazio";
+                        }
+                    ?>
+                    
+                    
+                    #header {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1px;
+    z-index: 999;
+    background: #343a40;
+    overflow-y: hidden;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+#header ul.left li {
+    float: left;
+}
+
+#header ul.right li {
+    float: right;
+}
+
+#header ul li a {
+    font-family: "Nunito-Bold", arial, sans-serif;
+    padding: 0 15px;
+    font-size: 13px;
+    display: inline-block;
+    float: left;
+    line-height: 35px;
+    font-weight: normal;
+    color: white;
+}

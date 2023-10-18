@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Instapaper :: Inicio</title>
+        <link rel="stylesheet" href="assets/css/min.styles.css" />
+        <link rel="stylesheet" href="fontawesome/css/all.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+    </head>
+    <body>
+        
+        <header>
+            <a href="#" class="logo"><img src="assets/img/logo.png" class="logo-img"></a>
+            <ul class="navbar">
+                <li><a href="#" class="active"><i class='bx bx-home'></i> Home</a></li>
+                <li><a href="#"><i class='bx bx-search'></i> Pesquisar</a></li>
+                <li><a href="#"><i class='bx bx-link-alt'></i> add Link</a></li>
+                <li><a href="#"><i class='bx bx-compass' ></i> Explorar</a></li>
+            </ul>
+            
+            <div class="main">
+                <a href="#" class="user"><i class='bx bx-user'></i>Entrar</a>
+                <a href="#">Criar conta</a>
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </header>
+        
+        <div class="row">
+            
+            <section>
+                <?php for($i=0;$i<7;$i++): ?>
+                <article class="card">
+                    <h2><a href="#">IA cria robô ambulante em poucos segundos</a></h2>
+                    <p class="link">https://olhardigital.com.br/2023/10/17/ciencia-e-espaco/ia-cria-robo-ambulante-em-poucos-segundos/</p>
+                    <p>Pesquisadores treinaram uma inteligência artificial que projetou um molde 3D de silicone que se move a partir de "músculos de ar"</p>
+                </article>
+                <article class="card">
+                     <h2><a href="#">Google doa dinheiro para vítimas dos confrontos em Israel e Gaza</a></h2>
+                    <p class="link">https://olhardigital.com.br/2023/10/17/pro/google-doa-dinheiro-para-vitimas-dos-confrontos-em-israel-e-gaza/</p>
+                    <p>O Google anunciou que US$8 milhões (mais de R$40 milhões) serão destinados para...</p>
+                </article>
+                <?php endfor; ?>
+            </section>
+            
+            <aside>
+                <article class="card">
+                    <form method="get">
+                        <input type="text" name="query" size="29" placeholder=" Pesquisar ..." />
+                    </form>
+                </article>
+                <article class="card">
+                    <h3><i class='bx bx-hash' ></i> Tags</h3>
+                    <ul class="menu_tags">
+                        <li><a href="#">#nostalgia</a></li>
+                        <li><a href="#">#internet</a></li>
+                        <li><a href="#">#tecnologia</a></li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <ul class="menu_footer">
+                        <li><a href="#">Sobre n&oacute;s</a></li>
+                        <li><a href="#">Ajuda</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Politica de Privacidade</a></li>
+                        <li><p>&copy 2023 Igor Eliseo Produções.</p></li>
+                    </ul>
+                </article>    
+            </aside>
+
+        </div>
+        
+        
+        
+        <script type="text/javascript" src="assets/js/jscript.js"></script>
+        
+    </body>
+</html>

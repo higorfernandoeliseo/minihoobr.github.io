@@ -1,0 +1,350 @@
+@font-face { 
+    font-family: "Nunito-Bold"; 
+    src: url('fonts/Nunito-Bold.ttf');
+}
+@font-face { 
+    font-family: "Nunito-Normal";
+    src: url('fonts/Nunito-Regular.ttf');
+}
+
+@font-face { 
+    font-family: "Lexend";
+    src: url('fonts/Lexend-Regular.ttf');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* #f97544; */
+
+:root {
+    --bg-color: #f6f7f8;
+    --text-color: #6d727e;
+    --main-color: #000;
+    --icons-color: #000;
+    --all-color: #fff;
+    --menu-color: #fff;
+/*    --bg-image: url('../img/theme-2.jpg');*/
+    --text-color-mob: #6d727e;
+    --link-save-color: #9f9e9f;
+    --description-color: #3e3b3b;
+    --link-color: #105CB6;
+    --border-color: #eff1f3;
+}
+
+body {
+    min-height: 100vh;
+/*    background: var(--bg-color);*/
+    color: var(--text-color);
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.6);
+/*    background: rgba(18,18,19,0.6);*/
+    padding: 11px 12%;
+    transition: all .50s ease;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0.7px 10px rgba(0,0,0,0.15);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    color: var(--icons-color);
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+.logo-img {
+    width: 85px;
+}
+
+.logo span {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar a {
+    color: var(--text-color);
+    font-size: 0.8rem;
+    font-weight: normal;
+    padding: 5px 0;
+    margin: 0px 20px;
+/*    transition: all .50s ease;*/
+}
+
+.navbar a i {
+    font-size: 0.8rem;
+    margin-top: 3px;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+.navbar a.active {
+   color: var(--main-color); 
+}
+
+.main {
+    display: flex;
+    align-items: center;
+}
+
+.main a {
+    margin-right: 25px;
+    margin-left: 10px;
+    color: var(--text-color);
+    font-size: 0.8rem;
+    font-weight: normal;
+/*    transition: all .50s ease;*/
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user i {
+    color: var(--icons-color);
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+.main a:hover {
+    color: var(--main-color);
+}
+
+#menu-icon {
+    font-size: 27px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+
+.row {
+    width: 1120px;
+    margin: 70px auto;
+    position: relative;
+    top: 70px;
+    display: table;
+    margin: 0px 118px;
+    
+}
+
+
+section {
+    float: left;
+    width: 72%;
+}
+
+aside {
+    float: left;
+    width: 27%;
+    padding-left: 20px;
+}
+
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 3px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #f6f6f6;
+    border-radius: 5px;
+}
+
+.card h2 a { 
+    color: var(--link-color);
+    font-size: 1.3rem;
+}
+
+.card p.link {
+    padding: 5px 0;
+    font-size: 0.9rem;
+    color: var(--link-save-color);
+}
+
+.card p {
+    color: var(--description-color);
+    font-size: 0.9rem;
+}
+
+
+.card form input[type="text"] {
+    padding: 5px;
+    border: 1px solid #eff1f3;
+    background-color: #f6f7f8;
+    border-radius: 6px;
+    outline: none;
+}
+
+.card h3 {
+    margin-bottom: 16px;
+}
+
+.card ul.menu_tags li {
+    margin-bottom: 4px;
+}
+
+.card ul.menu_tags li a {
+    padding: 6px;
+    display: block;
+    color: var(--link-color);
+    font-size: 0.9rem;
+}
+
+.card ul.menu_footer li a {
+    padding: 6px;
+    display: block;
+    color: var(--link-color);
+    font-size: 0.8rem;
+}
+
+.card ul.menu_footer li {
+    margin-bottom: 4px;
+}
+
+.card ul.menu_footer p {
+    margin-top: 20px;
+}
+
+
+
+
+@media screen and (max-width: 1090px) {
+    
+    header {
+        padding: 9px 2%;
+        transition: .2s;
+        position: fixed;
+    }
+    
+    #menu-icon {
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 116%;
+        right: -100%;
+        width: 270px;
+        background: var(--menu-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all .10s ease;
+        border: 3px solid var(--border-color);
+        margin-top: 7px;
+    }
+    
+   .navbar a {
+       display: block;
+       margin: 15px 0;
+       padding: 0px 22px;
+       color: var(--text-color-mob);
+    }
+    
+    .navbar a:hover {
+        color: var(--main-color);
+    }
+     .navbar a.active {
+        color: var(--main-color);
+    }
+    
+    .navbar.open {
+        right: 2%;
+    }
+    
+    .row {
+        margin:0 48px;
+        width: 100%;
+    }
+    
+    section {
+        float: left;
+        width: 55%;
+    }
+    
+    
+    
+}
+
+@media screen and (max-width: 1200px) {
+    
+    .row {
+        margin:0 53px;
+        width: 100%;
+        transition: .2s;
+    }
+    
+    section {
+        float: left;
+        width: 64%;
+    }
+}
+
+@media screen and (max-width: 1136px) {
+    
+    .row {
+        margin:0 73px;
+    }
+    
+    section {
+       float: left;
+       width: 57%;
+    }
+}
+
+@media screen and (max-width: 834px) {
+    
+    .row {
+        margin:0 23px;
+    }
+    
+    
+    section {
+        width: 95%;
+        padding-right: 7px;
+    }
+    
+    aside {
+        display: none;
+    }
+    
+    .navbar.open {
+        right: 4%;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+
+    .row {
+        margin: 0 13px;
+    }
+}
