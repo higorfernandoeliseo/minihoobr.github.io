@@ -29,28 +29,32 @@
         <div class="row">
             
             <section>
-                
+                <?php for($i=0;$i<2;$i++): ?>
                 <article class="card">
                     <h2><a href="#">IA cria robô ambulante em poucos segundos</a></h2>
                     <p class="link">https://olhardigital.com.br/2023/10/17/ciencia-e-espaco/ia-cria-robo-ambulante-em-poucos-segundos/</p>
                     <p>Pesquisadores treinaram uma inteligência artificial que projetou um molde 3D de silicone que se move a partir de "músculos de ar"</p>
+                    <div class="menu_box">
+                        <ul class="menu_link">
+                            <li><a href="#"><i class='bx bx-star' ></i> Favoritar</a></li>
+                            <li><a href="#"><i class='bx bx-share-alt' ></i> Compartilhar</a></li>
+                            <li><a href="#"><i class='bx bx-trash'></i> Apagar</a></li>
+                        </ul>
+                    </div>
                 </article>
                 <article class="card">
                      <h2><a href="#">Google doa dinheiro para vítimas dos confrontos em Israel e Gaza</a></h2>
                     <p class="link">https://olhardigital.com.br/2023/10/17/pro/google-doa-dinheiro-para-vitimas-dos-confrontos-em-israel-e-gaza/</p>
                     <p>O Google anunciou que US$8 milhões (mais de R$40 milhões) serão destinados para...</p>
+                    <div class="menu_box">
+                        <ul class="menu_link">
+                            <li><a href="#"><i class='bx bx-star' ></i> Favoritar</a></li>
+                            <li><a href="#"><i class='bx bx-share-alt' ></i> Compartilhar</a></li>
+                            <li><a href="#"><i class='bx bx-trash'></i> Apagar</a></li>
+                        </ul>
+                    </div>
                 </article>
-                <article class="card">
-                    <h2><a href="#">IA cria robô ambulante em poucos segundos</a></h2>
-                    <p class="link">https://olhardigital.com.br/2023/10/17/ciencia-e-espaco/ia-cria-robo-ambulante-em-poucos-segundos/</p>
-                    <p>Pesquisadores treinaram uma inteligência artificial que projetou um molde 3D de silicone que se move a partir de "músculos de ar"</p>
-                </article>
-                <article class="card">
-                     <h2><a href="#">Google doa dinheiro para vítimas dos confrontos em Israel e Gaza</a></h2>
-                    <p class="link">https://olhardigital.com.br/2023/10/17/pro/google-doa-dinheiro-para-vitimas-dos-confrontos-em-israel-e-gaza/</p>
-                    <p>O Google anunciou que US$8 milhões (mais de R$40 milhões) serão destinados para...</p>
-                </article>
-                
+                <?php endfor; ?>
             </section>
             
             <aside>
@@ -73,7 +77,7 @@
                         <li><a href="#">Ajuda</a></li>
                         <li><a href="#">Termos de Uso</a></li>
                         <li><a href="#">Politica de Privacidade</a></li>
-                        <li><p>&copy 2023 Igor Eliseo Produções.</p></li>
+                        <li><p>&copy <?php echo date('Y'); ?> Igor Eliseo Produções.</p></li>
                     </ul>
                 </article>    
             </aside>
